@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2027
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SurveyMe.Domain.Common", "SurveyMe.Domain.Common\SurveyMe.Domain.Common.csproj", "{F3534C1A-4AF1-4641-A7CE-8E170088C682}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SurveyMe.Domain.Common", "SurveyMe.Domain.Common\SurveyMe.Domain.Common.csproj", "{F3534C1A-4AF1-4641-A7CE-8E170088C682}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SurveyMe.Domain", "SurveyMe.Domain\SurveyMe.Domain.csproj", "{E7809A03-3F4E-40E8-AE53-9E6ADA211717}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{F3534C1A-4AF1-4641-A7CE-8E170088C682}.Debug|x64.Build.0 = Debug|x64
 		{F3534C1A-4AF1-4641-A7CE-8E170088C682}.Release|x64.ActiveCfg = Release|x64
 		{F3534C1A-4AF1-4641-A7CE-8E170088C682}.Release|x64.Build.0 = Release|x64
+		{E7809A03-3F4E-40E8-AE53-9E6ADA211717}.Debug|x64.ActiveCfg = Debug|x64
+		{E7809A03-3F4E-40E8-AE53-9E6ADA211717}.Debug|x64.Build.0 = Debug|x64
+		{E7809A03-3F4E-40E8-AE53-9E6ADA211717}.Release|x64.ActiveCfg = Release|x64
+		{E7809A03-3F4E-40E8-AE53-9E6ADA211717}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
