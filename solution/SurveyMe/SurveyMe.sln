@@ -5,11 +5,13 @@ VisualStudioVersion = 15.0.27428.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SurveyMe.Domain.Common", "SurveyMe.Domain.Common\SurveyMe.Domain.Common.csproj", "{F3534C1A-4AF1-4641-A7CE-8E170088C682}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SurveyMe.Domain", "SurveyMe.Domain\SurveyMe.Domain.csproj", "{E7809A03-3F4E-40E8-AE53-9E6ADA211717}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SurveyMe.Domain", "SurveyMe.Domain\SurveyMe.Domain.csproj", "{E7809A03-3F4E-40E8-AE53-9E6ADA211717}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SurveyMe.Infrastructure", "SurveyMe.Infrastructure\SurveyMe.Infrastructure.csproj", "{55C2C490-F919-4399-9AB4-69A3C86E070B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SurveyMe.Infrastructure", "SurveyMe.Infrastructure\SurveyMe.Infrastructure.csproj", "{55C2C490-F919-4399-9AB4-69A3C86E070B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SurveyMe.API", "SurveyMe.API\SurveyMe.API.csproj", "{D186EEBB-F896-4DA0-9079-184A9126B46D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SurveyMe.API", "SurveyMe.API\SurveyMe.API.csproj", "{D186EEBB-F896-4DA0-9079-184A9126B46D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SurveyMe.Auth", "SurveyMe.Auth\SurveyMe.Auth.csproj", "{39830AB2-F06E-457C-9A23-E7BC82FC75A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{D186EEBB-F896-4DA0-9079-184A9126B46D}.Debug|x64.Build.0 = Debug|x64
 		{D186EEBB-F896-4DA0-9079-184A9126B46D}.Release|x64.ActiveCfg = Release|x64
 		{D186EEBB-F896-4DA0-9079-184A9126B46D}.Release|x64.Build.0 = Release|x64
+		{39830AB2-F06E-457C-9A23-E7BC82FC75A6}.Debug|x64.ActiveCfg = Debug|x64
+		{39830AB2-F06E-457C-9A23-E7BC82FC75A6}.Debug|x64.Build.0 = Debug|x64
+		{39830AB2-F06E-457C-9A23-E7BC82FC75A6}.Release|x64.ActiveCfg = Release|x64
+		{39830AB2-F06E-457C-9A23-E7BC82FC75A6}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
