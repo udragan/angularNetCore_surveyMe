@@ -56,6 +56,7 @@ namespace SurveyMe.Auth
 				app.UseHsts();
 			}
 
+			app.UseStaticFiles();
 			app.UseIdentityServer();
 			app.UseMvcWithDefaultRoute();
 		}
