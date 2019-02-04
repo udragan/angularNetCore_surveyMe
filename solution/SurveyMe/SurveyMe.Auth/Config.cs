@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Security.Claims;
 using IdentityServer4;
 using IdentityServer4.Models;
+using IdentityServer4.Test;
 
 namespace udragan.netCore.SurveyMe.Auth
 {
@@ -12,6 +14,7 @@ namespace udragan.netCore.SurveyMe.Auth
 			{
 				new IdentityResources.OpenId(),
 				new IdentityResources.Profile(),
+				new IdentityResources.Email()
 			};
 		}
 
@@ -29,44 +32,64 @@ namespace udragan.netCore.SurveyMe.Auth
 			{
 				new Client
 				{
-					ClientId = "client",
+					ClientId = "SPA",
+					ClientName = "angular SPA client",
+					AllowedGrantTypes = GrantTypes.Implicit,
+					AllowAccessTokensViaBrowser = true,
+					AccessTokenLifetime = 60, // TODO: 1 minute for testing!
 
-					// no interactive user, use the clientid/secret for authentication
-					AllowedGrantTypes = GrantTypes.ClientCredentials,
+					//// secret for authentication
+					//ClientSecrets =
+					//{
+					//	new Secret("angular".Sha256())
+					//},
+				
+					// where to redirect to after login
+					RedirectUris = { "http://localhost:50001/signin-oidc" },
 
-					// secret for authentication
-					ClientSecrets =
-					{
-						new Secret("secret".Sha256())
-					},
-
-					// scopes that client has access to
-					AllowedScopes = { "SurveyMe.API" }
-				},
-				// OpenID Connect hybrid flow client (MVC)
-				new Client
-				{
-					ClientId = "angular",
-					ClientName = "Angular Client",
-					AllowedGrantTypes = GrantTypes.Hybrid,
-
-					ClientSecrets =
-					{
-						new Secret("secret".Sha256())
-					},
-
-					RedirectUris           = { "http://localhost:50001/signin-oidc" },
+					// where to redirect to after logout
 					PostLogoutRedirectUris = { "http://localhost:50001/signout-callback-oidc" },
 
-					AllowedScopes =
+					AllowedScopes = new List<string>
 					{
 						IdentityServerConstants.StandardScopes.OpenId,
 						IdentityServerConstants.StandardScopes.Profile,
-						"SurveyMe.API"
+						"SurveyMe.API",
 					},
 
-					AllowOfflineAccess = true
+					//AllowOfflineAccess = true
+				}
+			};
+		}
+
+		public static List<TestUser> GetUsers()
+		{
+			return new List<TestUser>
+			{
+				new TestUser
+				{
+					SubjectId = "1",
+					Username = "alice",
+					Password = "password",
+
+					Claims = new []
+					{
+						new Claim("name", "Alice"),
+						new Claim("website", "https://alice.com")
+					}
 				},
+				new TestUser
+				{
+					SubjectId = "2",
+					Username = "bob",
+					Password = "password",
+
+					Claims = new []
+					{
+						new Claim("name", "Bob"),
+						new Claim("website", "https://bob.com")
+					}
+				}
 			};
 		}
 	}
