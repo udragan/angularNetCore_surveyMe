@@ -1,13 +1,9 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using udragan.netCore.SurveyMe.Auth;
-using udragan.netCore.SurveyMe.Auth.Contexts;
-using udragan.netCore.SurveyMe.Auth.Models;
 
 namespace SurveyMe.Auth
 {
@@ -23,7 +19,7 @@ namespace SurveyMe.Auth
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
-			services.AddDbContext<ApplicationIdentityDbContext>(opt => opt.UseInMemoryDatabase(databaseName: "InMemoryDatabase"));
+			/*services.AddDbContext<ApplicationIdentityDbContext>(opt => opt.UseInMemoryDatabase(databaseName: "InMemoryDatabase"));
 			services.AddIdentity<ApplicationUser, IdentityRole>()
 				.AddEntityFrameworkStores<ApplicationIdentityDbContext>()
 				.AddDefaultTokenProviders();
@@ -38,10 +34,18 @@ namespace SurveyMe.Auth
 				.AddInMemoryIdentityResources(Config.GetIdentityResources())
 				.AddInMemoryApiResources(Config.GetApis())
 				.AddInMemoryClients(Config.GetClients())
-				.AddAspNetIdentity<ApplicationUser>();
+				.AddTestUsers(Config.GetUsers())
+				.AddAspNetIdentity<ApplicationUser>();*/
 
+			services.AddMvc()
+				.SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+			services.AddIdentityServer()
+				.AddInMemoryIdentityResources(Config.GetIdentityResources())
+				.AddInMemoryApiResources(Config.GetApis())
+				.AddInMemoryClients(Config.GetClients())
+				.AddTestUsers(Config.GetUsers())
+				.AddDeveloperSigningCredential(); //TODO: set real credential for prod!!
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,10 +54,6 @@ namespace SurveyMe.Auth
 			if (env.IsDevelopment())
 			{
 				app.UseDeveloperExceptionPage();
-			}
-			else
-			{
-				app.UseHsts();
 			}
 
 			app.UseStaticFiles();
