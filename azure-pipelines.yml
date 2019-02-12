@@ -31,6 +31,4 @@ steps:
     command: build
     projects: '**/*SurveyMe.sln'
     configuration: '$(buildConfiguration)'
-  env:
-    'SpaRoot': 'solution/SurveyMe/SurveyMe.SPA/Client/'
   displayName: 'sln build'
