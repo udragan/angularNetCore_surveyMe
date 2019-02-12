@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SurveyMe.Infrastructure", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SurveyMe.API", "SurveyMe.API\SurveyMe.API.csproj", "{D186EEBB-F896-4DA0-9079-184A9126B46D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SurveyMe.Auth", "SurveyMe.Auth\SurveyMe.Auth.csproj", "{39830AB2-F06E-457C-9A23-E7BC82FC75A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SurveyMe.Auth", "SurveyMe.Auth\SurveyMe.Auth.csproj", "{39830AB2-F06E-457C-9A23-E7BC82FC75A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SurveyMe.SPA", "SurveyMe.SPA\SurveyMe.SPA.csproj", "{06C09AB5-31ED-4F1A-AA57-0986D9F7EE3B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{39830AB2-F06E-457C-9A23-E7BC82FC75A6}.Debug|x64.Build.0 = Debug|x64
 		{39830AB2-F06E-457C-9A23-E7BC82FC75A6}.Release|x64.ActiveCfg = Release|x64
 		{39830AB2-F06E-457C-9A23-E7BC82FC75A6}.Release|x64.Build.0 = Release|x64
+		{06C09AB5-31ED-4F1A-AA57-0986D9F7EE3B}.Debug|x64.ActiveCfg = Debug|x64
+		{06C09AB5-31ED-4F1A-AA57-0986D9F7EE3B}.Debug|x64.Build.0 = Debug|x64
+		{06C09AB5-31ED-4F1A-AA57-0986D9F7EE3B}.Release|x64.ActiveCfg = Release|x64
+		{06C09AB5-31ED-4F1A-AA57-0986D9F7EE3B}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
