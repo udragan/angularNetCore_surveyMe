@@ -7,18 +7,18 @@ trigger:
 - none
 
 pool:
-  #vmImage: 'Ubuntu-16.04'
-  vmImage: 'vs2017-win2016'
+  vmImage: 'Ubuntu-16.04'
+  #vmImage: 'vs2017-win2016'
 
 variables:
   buildConfiguration: 'Release'
 
 steps:
-- task: Npm@1
-  inputs:
-    command: install
-    workingDir: 'solution/SurveyMe/SurveyMe.SPA/Client/'
-  displayName: 'npm install'
+# - task: Npm@1
+#   inputs:
+#     command: install
+#     workingDir: 'solution/SurveyMe/SurveyMe.SPA/Client/'
+#   displayName: 'npm install'
 
 - task: DotNetCoreCLI@2
   inputs:
@@ -29,6 +29,8 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: build
-    projects: '**/*.sln'
+    projects: '**/*SurveyMe.sln'
     configuration: '$(buildConfiguration)'
+  env:
+    'SpaRoot': 'solution/SurveyMe/SurveyMe.SPA/Client/'
   displayName: 'sln build'
