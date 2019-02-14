@@ -11,8 +11,8 @@ trigger:
   #   - master
 
 pool:
-  vmImage: 'Ubuntu-16.04' # don`t know how to prefix Npm task with 'sudo'
-  #vmImage: 'vs2017-win2016'
+  #vmImage: 'Ubuntu-16.04' # don`t know how to prefix Npm task with 'sudo'
+  vmImage: 'vs2017-win2016'
 
 variables:
   buildConfiguration: 'Release'
@@ -43,28 +43,28 @@ steps:
 #     workingDir: 'solution/SurveyMe/SurveyMe.SPA/Client/'
 #   displayName: 'npm install'
 
-# - task: Npm@1
-#   inputs:
-#     command: custom
-#     customCommand: install -g @angular/cli
-# displayName: 'install angularCli'
-
-- script: sudo npm install -g @angular/cli
+- task: Npm@1
+  inputs:
+    command: custom
+    customCommand: install -g @angular/cli
   displayName: 'install angularCli'
 
-# - task: Npm@1
-#   inputs:
-#     command: install
-#     workingDir: 'solution/SurveyMe/SurveyMe.SPA/Client/'
-#   displayName: 'npm install'
+# - script: sudo npm install -g @angular/cli
+#   displayName: 'install angularCli'
 
-- script: sudo npm install
-  workingDirectory: 'solution/SurveyMe/SurveyMe.SPA/Client/'
+- task: Npm@1
+  inputs:
+    command: install
+    workingDir: 'solution/SurveyMe/SurveyMe.SPA/Client/'
   displayName: 'npm install'
+
+# - script: sudo npm install
+#   workingDirectory: 'solution/SurveyMe/SurveyMe.SPA/Client/'
+#   displayName: 'npm install'
 
 - task: Npm@1
   inputs:
     command: custom
-    customCommand: run build-prod
+    customCommand: run build
     workingDir: 'solution/SurveyMe/SurveyMe.SPA/Client/'
   displayName: 'npm build'
