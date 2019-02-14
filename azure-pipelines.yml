@@ -4,7 +4,10 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
-- none
+  batch: true
+  branches:
+    include:
+    - master
 
 pool:
   vmImage: 'Ubuntu-16.04'
@@ -32,3 +35,20 @@ steps:
     projects: '**/*SurveyMe.sln'
     configuration: '$(buildConfiguration)'
   displayName: 'sln build'
+
+- task: Npm@1
+  inputs:
+    command: install
+  displayName: 'npm install'
+
+- task: Npm@1
+  inputs:
+    command: custom
+    customCommand: install -g @angular/cli
+  displayName: 'install angularCli'
+
+- task: Npm@1
+  inputs:
+    command: custom
+    customCommand: run build-prod
+  displayName: 'npm build'
