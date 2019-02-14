@@ -17,36 +17,38 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+# # - task: Npm@1
+# #   inputs:
+# #     command: install
+# #     workingDir: 'solution/SurveyMe/SurveyMe.SPA/Client/'
+# #   displayName: 'npm install'
+
+# - task: DotNetCoreCLI@2
+#   inputs:
+#     command: restore
+#     projects: '**/*.csproj'
+#   displayName: 'nuget restore'
+
+# - task: DotNetCoreCLI@2
+#   inputs:
+#     command: build
+#     projects: '**/*SurveyMe.sln'
+#     configuration: '$(buildConfiguration)'
+#   displayName: 'sln build'
+
 # - task: Npm@1
 #   inputs:
 #     command: install
 #     workingDir: 'solution/SurveyMe/SurveyMe.SPA/Client/'
 #   displayName: 'npm install'
 
-- task: DotNetCoreCLI@2
-  inputs:
-    command: restore
-    projects: '**/*.csproj'
-  displayName: 'nuget restore'
+# - task: Npm@1
+#   inputs:
+#     command: custom
+#     customCommand: install -g @angular/cli
+# displayName: 'install angularCli'
 
-- task: DotNetCoreCLI@2
-  inputs:
-    command: build
-    projects: '**/*SurveyMe.sln'
-    configuration: '$(buildConfiguration)'
-  displayName: 'sln build'
-
-- task: Npm@1
-  inputs:
-    command: install
-    workingDir: 'solution/SurveyMe/SurveyMe.SPA/Client/'
-  displayName: 'npm install'
-
-- task: Npm@1
-  inputs:
-    command: custom
-    customCommand: sudo install -g @angular/cli
-  displayName: 'install angularCli'
+- script: sudo npm install -g @angular/cli
 
 - task: Npm@1
   inputs:
