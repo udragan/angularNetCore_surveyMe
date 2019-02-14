@@ -39,16 +39,18 @@ steps:
 - task: Npm@1
   inputs:
     command: install
+    workingDir: 'solution/SurveyMe/SurveyMe.SPA/Client/'
   displayName: 'npm install'
 
 - task: Npm@1
   inputs:
     command: custom
-    customCommand: install -g @angular/cli
+    customCommand: sudo install -g @angular/cli
   displayName: 'install angularCli'
 
 - task: Npm@1
   inputs:
     command: custom
     customCommand: run build-prod
+    workingDir: 'solution/SurveyMe/SurveyMe.SPA/Client/'
   displayName: 'npm build'
