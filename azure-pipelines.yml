@@ -4,11 +4,11 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
-  none
-  # batch: true
-  # branches:
-  #   include:
-  #   - master
+  #none
+  batch: true
+   branches:
+     include:
+     - master
 
 pool:
   #vmImage: 'Ubuntu-16.04' # don`t know how to prefix Npm task with 'sudo'
@@ -18,30 +18,18 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-# # - task: Npm@1
-# #   inputs:
-# #     command: install
-# #     workingDir: 'solution/SurveyMe/SurveyMe.SPA/Client/'
-# #   displayName: 'npm install'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: restore
+    projects: '**/*.csproj'
+  displayName: 'nuget restore'
 
-# - task: DotNetCoreCLI@2
-#   inputs:
-#     command: restore
-#     projects: '**/*.csproj'
-#   displayName: 'nuget restore'
-
-# - task: DotNetCoreCLI@2
-#   inputs:
-#     command: build
-#     projects: '**/*SurveyMe.sln'
-#     configuration: '$(buildConfiguration)'
-#   displayName: 'sln build'
-
-# - task: Npm@1
-#   inputs:
-#     command: install
-#     workingDir: 'solution/SurveyMe/SurveyMe.SPA/Client/'
-#   displayName: 'npm install'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: build
+    projects: '**/*SurveyMe.sln'
+    configuration: '$(buildConfiguration)'
+  displayName: 'sln build'
 
 - task: Npm@1
   inputs:
@@ -50,6 +38,7 @@ steps:
   displayName: 'install angularCli'
 
 # - script: sudo npm install -g @angular/cli
+#   workingDirectory: 'solution/SurveyMe/SurveyMe.SPA/Client/'
 #   displayName: 'install angularCli'
 
 - task: Npm@1
