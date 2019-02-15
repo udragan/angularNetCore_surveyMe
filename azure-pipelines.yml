@@ -21,8 +21,10 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: restore
+    feedsToUse: select
+    vstsFeed: 'SurveyMe_artifacts'
     projects: '**/*.csproj'
-  displayName: 'nuget restore'
+  displayName: 'nuget restore' 
 
 - task: DotNetCoreCLI@2
   inputs:
