@@ -4,11 +4,11 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
-  none
-  # batch: true
-  # branches:
-  #    include:
-  #    - master
+  # none
+  batch: true
+  branches:
+     include:
+     - master
 
 pool:
   #vmImage: 'Ubuntu-16.04' # don`t know how to prefix Npm task with 'sudo'
@@ -17,6 +17,7 @@ pool:
 variables:
   buildConfiguration: 'Release'
 
+  
 steps:
 - task: DotNetCoreCLI@2
   inputs:
@@ -24,8 +25,12 @@ steps:
     feedsToUse: select
     vstsFeed: 'SurveyMe_artifacts'
     projects: '**/*.csproj'
-  displayName: 'nuget restore' 
+  displayName: 'nuget restore'
 
+- task: npmAuthenticate@0
+  inputs:
+    workingFile: 'solution/SurveyMe/SurveyMe.SPA/Client/.npmrc'
+	
 - task: DotNetCoreCLI@2
   inputs:
     command: build
