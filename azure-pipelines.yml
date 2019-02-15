@@ -4,11 +4,11 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
-  none
-  # batch: true
-  # branches:
-  #    include:
-  #    - master
+  #none
+  batch: true
+  branches:
+     include:
+     - master
 
 pool:
   #vmImage: 'Ubuntu-16.04' # don`t know how to prefix Npm task with 'sudo'
@@ -45,8 +45,6 @@ steps:
   inputs:
     command: install
     workingDir: 'solution/SurveyMe/SurveyMe.SPA/Client/'
-    customRegistry: useFeed
-    customFeed: 'SurveyMe_artifacts'
   displayName: 'npm install'
 
 # - script: sudo npm install
@@ -56,6 +54,6 @@ steps:
 - task: Npm@1
   inputs:
     command: custom
-    customCommand: run build-prod
+    customCommand: run build
     workingDir: 'solution/SurveyMe/SurveyMe.SPA/Client/'
   displayName: 'npm build'
