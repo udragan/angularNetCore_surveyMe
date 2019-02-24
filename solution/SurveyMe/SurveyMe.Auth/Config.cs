@@ -45,10 +45,10 @@ namespace udragan.netCore.SurveyMe.Auth
 					//},
 				
 					// where to redirect to after login
-					RedirectUris = { "http://localhost:50001/signin-oidc" },
+					RedirectUris = { "http://localhost:4200/home" },
 
 					// where to redirect to after logout
-					PostLogoutRedirectUris = { "http://localhost:50001/signout-callback-oidc" },
+					PostLogoutRedirectUris = { "http://localhost:4200/home" },
 
 					AllowedScopes = new List<string>
 					{
