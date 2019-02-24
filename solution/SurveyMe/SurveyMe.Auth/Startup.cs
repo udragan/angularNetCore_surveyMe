@@ -46,6 +46,8 @@ namespace SurveyMe.Auth
 				.AddInMemoryClients(Config.GetClients())
 				.AddTestUsers(Config.GetUsers())
 				.AddDeveloperSigningCredential(); //TODO: set real credential for prod!!
+
+			services.AddCors();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,6 +57,14 @@ namespace SurveyMe.Auth
 			{
 				app.UseDeveloperExceptionPage();
 			}
+
+			// TODO: allow specific origins only!
+			app.UseCors(x =>
+			{
+				x.AllowAnyOrigin();
+				x.AllowAnyHeader();
+				x.AllowAnyMethod();
+			});
 
 			app.UseStaticFiles();
 			app.UseIdentityServer();
