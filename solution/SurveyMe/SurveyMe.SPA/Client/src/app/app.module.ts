@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { OAuthModule } from 'angular-oauth2-oidc';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +16,7 @@ import { HomeComponent } from './home/home.component';
     imports: [
         BrowserModule,
         HttpClientModule,
+        NgbModule,
         OAuthModule.forRoot(),
         AppRoutingModule
     ],
