@@ -11,20 +11,14 @@ export class HomeComponent implements OnInit {
 
     ngOnInit(): void { }
 
-    public login() {
-        this.oauthService.initImplicitFlow();
-    }
+    // public get name() {
+    //     const claims = this.oauthService.getIdentityClaims();
 
-    public logoff() {
-        this.oauthService.logOut();
-    }
+    //     if (!claims) {
+    //         return null;
+    //     }
 
-    public get name() {
-        const claims = this.oauthService.getIdentityClaims();
-        if (!claims) {
-            return null;
-        }
-        return claims;
-    }
+    //     return claims.given_name;
+    // }
 
 }
