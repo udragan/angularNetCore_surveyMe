@@ -42,7 +42,7 @@ export class NavComponent {
             return null;
         }
 
-        return claims.given_name;
+        return null;//claims.given_name; //TODO: see how to fix this!!
     }
 
     private configureWithNewConfigApi() {
