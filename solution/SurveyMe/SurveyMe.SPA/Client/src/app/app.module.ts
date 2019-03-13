@@ -5,20 +5,21 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { OAuthModule } from 'angular-oauth2-oidc';
 
 import { AppRoutingModule } from './app-routing.module';
+import { CoreModule } from './core/core.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
 
 @NgModule({
     declarations: [
-        AppComponent,
-        HomeComponent
+        AppComponent
     ],
     imports: [
         BrowserModule,
         HttpClientModule,
         NgbModule,
         OAuthModule.forRoot(),
-        AppRoutingModule
+
+        CoreModule,
+        AppRoutingModule,
     ],
     providers: [],
     bootstrap: [AppComponent]
